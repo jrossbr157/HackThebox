@@ -56,18 +56,22 @@ ffuf -w ids.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php -X POST -d
 # XSS
 
 - [ ] Check for possible XSS 
-- [ ] Check if the XSS is possible for # Session Hijacking # check if some1 will review the post ![[Pasted image 20240403152514.png]]
+- [ ] Check if the XSS is possible for # Session Hijacking # check if some1 will review the post ![Pasted image 20240403152514](https://github.com/jrossbr157/HackThebox/assets/72611275/c2b046bc-eba9-4a57-ba75-f4a620fbddff)
+
 # COMMAND INJECTIONS
 
 
-- [ ] Check if the result is similar to a shell section ![[Pasted image 20240403160949.png]]
+- [ ] Check if the result is similar to a shell section ![Pasted image 20240403160949](https://github.com/jrossbr157/HackThebox/assets/72611275/e9eb96bd-fbc6-4f40-ad4e-d6b1fc81ae12)
+
 
 - [ ] Check if the post could break by using shell operators
-- [ ] Check for filters ![[Pasted image 20240403164511.png]] ![[Pasted image 20240403164459.png]]
+- [ ] Check for filters ![[Pasted image 20240403164511.png]] ![Pasted image 20240403164459](https://github.com/jrossbr157/HackThebox/assets/72611275/e87508dc-6578-41c9-b63c-1d18cf6563a5)
+
 
 
 - [ ] Check every parameter on the page as it might lead to command injection 
-![[Pasted image 20240403192855.png]]
+![Pasted image 20240403192855](https://github.com/jrossbr157/HackThebox/assets/72611275/07cab8b9-d726-4e42-8791-a321dd450123)
+
 
 
 ---
@@ -83,8 +87,10 @@ Bypass basic filter by changing the POST request before seeding
 	- [ ] If it accepts other types of .php extension with extension fuzzing 
 	
 - [ ] Check for White list type filter (use this to check files types [SecLists/Discovery/Web-Content/web-extensions.txt at master · danielmiessler/SecLists · GitHub](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt))![[Pasted image 20240404205449.png]]
-	- [ ] Check for Double Extensions ![[Pasted image 20240404205748.png]]
-	- [ ] Check for Reverse Duble extension ![[Pasted image 20240404205738.png]] 
+	- [ ] Check for Double Extensions ![Pasted image 20240404205748](https://github.com/jrossbr157/HackThebox/assets/72611275/84ed6d70-3275-43a8-b99e-7e021509da78)
+
+	- [ ] Check for Reverse Duble extension ![Pasted image 20240404205738](https://github.com/jrossbr157/HackThebox/assets/72611275/8aa820cd-a9b3-4397-bb40-b1347001e13d)
+
 
 - [ ] Try to use Duble extension and Extension fusion Technics  
 
@@ -127,7 +133,8 @@ done
  cat content-type.txt | grep 'image/' > image-content-types.txt
 ```
 
-![[Pasted image 20240404210329.png]]
+![Pasted image 20240404210329](https://github.com/jrossbr157/HackThebox/assets/72611275/21ee3108-667e-4805-b4b3-8c3aa6f82625)
+
 
 
 > [!NOTE]
@@ -190,7 +197,8 @@ check for few other types of file upload attacks that can lead to RCE
 # Server-side attacks
 
 - [ ] Check if the page on port 8009 is vulnerable to AJP proxy ports (`8009 TCP`)
-check of internal redirects like this ![[Pasted image 20240408121357.png]]
+check of internal redirects like this ![Pasted image 20240408121357](https://github.com/jrossbr157/HackThebox/assets/72611275/4b314969-4929-4db7-99de-d434ea0a7d23)
+
 
 
 - [ ]  Check for SSRF explisit by testing the parameter 
@@ -263,7 +271,8 @@ ${7*7}
 We can find the SSTI a different ways, but where a 3 exemples  where  
 
 - [ ] Reflected text 
-![[Pasted image 20240408124133.png]]
+![Pasted image 20240408124133](https://github.com/jrossbr157/HackThebox/assets/72611275/cbc65c11-fea4-47ea-9f3f-4c23480c9b3a)
+
 
 
 - [ ] \\\\POST///  the user input is submitted inside a parameter called `email` and through a POST request to `http://<TARGET IP>:<PORT>/jointheteam`
@@ -275,8 +284,9 @@ curl -X POST -d 'email=${7*7}' http://<TARGET IP>:<PORT>/jointheteam
 
 GET 
 
-![[Pasted image 20240408124343.png]]
-![[Pasted image 20240408124352.png]]
+![Pasted image 20240408124343](https://github.com/jrossbr157/HackThebox/assets/72611275/a207dc17-1d18-4ba3-93b8-974d7435e220)
+![Pasted image 20240408124352](https://github.com/jrossbr157/HackThebox/assets/72611275/0e97afd5-b646-4383-806c-70135841c852)
+
 
 
 > [!NOTE]
@@ -295,17 +305,20 @@ GET
 | `OPTIONS` |
 | `PATCH`   |
 
-when received  with a ![[Pasted image 20240409155709.png]] try to change the request verb.
+when received  with a![Pasted image 20240409155709](https://github.com/jrossbr157/HackThebox/assets/72611275/6a874fb2-85d9-4c3b-9a90-32c7896a50db)
+ try to change the request verb.
 
 
 # Identifying IDORs
 
  check for easy IDORS by identifying some like this (`?uid=2`) or (`?filename=file_2.pdf`)
 
-check for IDORS on file or other  itens that are requested by Guessable IDS, like ![[Pasted image 20240409162841.png]]
+check for IDORS on file or other  itens that are requested by Guessable IDS, like ![Pasted image 20240409162841](https://github.com/jrossbr157/HackThebox/assets/72611275/0467a24c-4041-4adc-8280-5c94df2ba23f)
+
 - [ ] Check for IDOR in API/JSON requests , like this 
 
-![[Pasted image 20240409164729.png]]
+![Pasted image 20240409164729](https://github.com/jrossbr157/HackThebox/assets/72611275/8213c7eb-044b-4bb9-af62-8b625607affd)
+
 
 ---
 # XXE
@@ -313,12 +326,14 @@ check for IDORS on file or other  itens that are requested by Guessable IDS, lik
 For xxe we have 2 possible  option for the exam:
 
 1- During POST Requests 
-![[Pasted image 20240409170346.png]]
+![Pasted image 20240409170346](https://github.com/jrossbr157/HackThebox/assets/72611275/994b7e01-b14b-48fc-b9fe-ddc6760b651e)
+
 
 > [!NOTE]
 > Some web applications may default to a JSON format in HTTP request, but may still accept other formats, including XML. So, even if a web app sends requests in a JSON format, we can try changing the `Content-Type` header to `application/xml`, and then convert the JSON data to XML with an [online tool](https://www.convertjson.com/json-to-xml.htm). If the web application does accept the request with XML data, then we may also test it against XXE vulnerabilities, which may reveal an unanticipated XXE vulnerability.
 
-- [ ] Check if application can accept XML by changing the header  and changing the content  ![[Pasted image 20240409180341.png]]
+- [ ] Check if application can accept XML by changing the header  and changing the content  ![Pasted image 20240409180341](https://github.com/jrossbr157/HackThebox/assets/72611275/0dfe9a3f-8782-43bb-af5d-c178f986f1e2)
+
 
 > [!tip]
 > **Tip:** In certain Java web applications, we may also be able to specify a directory instead of a file, and we will get a directory listing instead, which can be useful for locating sensitive files.
