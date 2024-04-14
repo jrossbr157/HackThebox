@@ -48,7 +48,8 @@ ffuf -w ids.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php -X POST -d
 #  JAVASCRIPT DEOBFUSCATION
 
 - [ ] check the  source code 
-- [ ] check for js files on the page, like this    ![[Pasted image 20240401221401.png]]
+- [ ] check for js files on the page, like this   ![Pasted image 20240401221401](https://github.com/jrossbr157/HackThebox/assets/72611275/ffc2f61c-0783-4c5d-891f-139ea0071046)
+
 - [ ] use this to run and test the JS code console [jsconsole](https://jsconsole.com/) [UnPacker (matthewfl.com)](https://matthewfl.com/unPacker.html)
 - [ ] Use chat gpt for help
 
